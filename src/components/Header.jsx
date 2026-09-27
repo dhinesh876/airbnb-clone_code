@@ -1,6 +1,7 @@
 
 
 import { useEffect, useState } from 'react';
+import { asset } from '../utils/asset';
 
 export default function Header({ onReserveClick }) {
   const [isScrolled, setIsScrolled] = useState(false);
@@ -13,7 +14,7 @@ export default function Header({ onReserveClick }) {
     { label: 'Location', id: 'location' }
   ];
 
-  
+
   useEffect(() => {
     const handleScroll = () => {
       const scrollPosition = window.scrollY;
@@ -66,12 +67,12 @@ export default function Header({ onReserveClick }) {
             <button className="ab-navbar__search-item" type="button">
               <img
                 className="ab-navbar__search-icon"
-                src="/assets/image/searchbar-house.png"
+                src={asset("assets/image/searchbar-house.png")}
                 alt=""
                 aria-hidden="true"
                 onError={(e) => {
                   e.currentTarget.onerror = null;
-                  e.currentTarget.src = "/assets/image/searchbar-house.svg";
+                  e.currentTarget.src = asset("assets/image/searchbar-house.svg");
                 }}
               />
               <span>Anywhere</span>

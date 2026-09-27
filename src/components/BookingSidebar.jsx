@@ -1,6 +1,7 @@
 
 
 import { ChevronDown } from 'lucide-react';
+import { asset } from '../utils/asset';
 
 export default function BookingSidebar({ listing, onReserveClick }) {
   return (
@@ -9,13 +10,13 @@ export default function BookingSidebar({ listing, onReserveClick }) {
 
         <div className="ab-discount-banner">
           <img
-            src="/assets/image/discount.svg"
+            src={asset("assets/image/discount.svg")}
             alt=""
             aria-hidden="true"
             className="ab-discount-banner__tag-icon"
             onError={(e) => {
               e.currentTarget.onerror = null;
-              e.currentTarget.src = "/assets/images/ui/discount.svg";
+              e.currentTarget.src = asset("assets/images/ui/discount.svg");
             }}
           />
 

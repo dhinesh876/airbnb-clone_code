@@ -1,3 +1,4 @@
+import { asset } from '../utils/asset';
 
 
 export default function Host() {
@@ -11,15 +12,15 @@ export default function Host() {
     school: "Where I went to school: NICMAR GOA",
     responseRate: "100%",
     responseTime: "within an hour",
-    avatar: "/assets/image/host.png",
+    avatar: asset("assets/image/host.png"),
     fallbackAvatar: "https://a0.muscache.com/im/pictures/user/User-457319955/original/6c65342a-2895-4663-883a-e9fa498a3b5a.jpeg",
     coHosts: [
-      { name: "Sharath", type: "img", src: "/assets/image/sharath.png", fb: "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=80&auto=format&fit=crop&q=80" },
-      { name: "Aman Dev Pahwa", type: "img", src: "/assets/image/aman.png", fb: "https://images.unsplash.com/photo-1500648767791-00dcc994a43e?w=80&auto=format&fit=crop&q=80" },
-      { name: "Maria Karen Priyanka", type: "img", src: "/assets/image/maria.png", fb: "https://images.unsplash.com/photo-1544005313-94ddf0286df2?w=80&auto=format&fit=crop&q=80" },
-      { name: "Simran", type: "img", src: "/assets/image/simran.png", fb: "https://images.unsplash.com/photo-1494790108377-be9c29b29330?w=80&auto=format&fit=crop&q=80" },
-      { name: "Pallavi", type: "img", src: "/assets/image/pallavi.png", fb: "https://images.unsplash.com/photo-1517841905240-472988babdf9?w=80&auto=format&fit=crop&q=80" },
-      { name: "Sanyukta", type: "img", src: "/assets/image/sanyukta.png", fb: "https://images.unsplash.com/photo-1524504388940-b1c1722653e1?w=80&auto=format&fit=crop&q=80" },
+      { name: "Sharath", type: "img", src: asset("assets/image/sharath.png"), fb: "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=80&auto=format&fit=crop&q=80" },
+      { name: "Aman Dev Pahwa", type: "img", src: asset("assets/image/aman.png"), fb: "https://images.unsplash.com/photo-1500648767791-00dcc994a43e?w=80&auto=format&fit=crop&q=80" },
+      { name: "Maria Karen Priyanka", type: "img", src: asset("assets/image/maria.png"), fb: "https://images.unsplash.com/photo-1544005313-94ddf0286df2?w=80&auto=format&fit=crop&q=80" },
+      { name: "Simran", type: "img", src: asset("assets/image/simran.png"), fb: "https://images.unsplash.com/photo-1494790108377-be9c29b29330?w=80&auto=format&fit=crop&q=80" },
+      { name: "Pallavi", type: "img", src: asset("assets/image/pallavi.png"), fb: "https://images.unsplash.com/photo-1517841905240-472988babdf9?w=80&auto=format&fit=crop&q=80" },
+      { name: "Sanyukta", type: "img", src: asset("assets/image/sanyukta.png"), fb: "https://images.unsplash.com/photo-1524504388940-b1c1722653e1?w=80&auto=format&fit=crop&q=80" },
       { name: "Shruti", type: "letter", letter: "S", bg: "rgb(253, 231, 239)", color: "rgb(212, 53, 110)" },
       { name: "Amisha", type: "letter", letter: "A", bg: "rgb(231, 240, 253)", color: "rgb(58, 110, 204)" }
     ]

@@ -1,6 +1,7 @@
 
 
 import { useState } from 'react';
+import { asset } from '../utils/asset';
 
 const CategoryIcons = {
   cleanliness: (
@@ -49,16 +50,16 @@ export default function Reviews() {
 
   
   const chips = [
-    { label: "Comfort", count: 6, img: "/assets/image/comfort.png" },
-    { label: "Accuracy", count: 5, img: "/assets/image/accuracy.png" },
-    { label: "Hot tub", count: 5, img: "/assets/image/hot-tub.png" },
-    { label: "Condition", count: 4, img: "/assets/image/condition.png" },
-    { label: "Hospitality", count: 8, img: "/assets/image/hospitality.png" },
-    { label: "Cleanliness", count: 4, img: "/assets/image/cleanliness.png" },
-    { label: "Amenities", count: 2, img: "/assets/image/amenities.png" },
-    { label: "Decor", count: 2, img: "/assets/image/decor.png" },
-    { label: "Indoor spaces", count: 2, img: "/assets/image/indoor-spaces.png" },
-    { label: "Location", count: 2, img: "/assets/image/location.png" },
+    { label: "Comfort", count: 6, img: asset("assets/image/comfort.png") },
+    { label: "Accuracy", count: 5, img: asset("assets/image/accuracy.png") },
+    { label: "Hot tub", count: 5, img: asset("assets/image/hot-tub.png") },
+    { label: "Condition", count: 4, img: asset("assets/image/condition.png") },
+    { label: "Hospitality", count: 8, img: asset("assets/image/hospitality.png") },
+    { label: "Cleanliness", count: 4, img: asset("assets/image/cleanliness.png") },
+    { label: "Amenities", count: 2, img: asset("assets/image/amenities.png") },
+    { label: "Decor", count: 2, img: asset("assets/image/decor.png") },
+    { label: "Indoor spaces", count: 2, img: asset("assets/image/indoor-spaces.png") },
+    { label: "Location", count: 2, img: asset("assets/image/location.png") },
   ];
 
   return (
@@ -66,14 +67,14 @@ export default function Reviews() {
       <div style={{ textAlign: 'center', padding: '8px 0 40px' }}>
         <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'center', gap: '8px' }}>
           <img
-            src="/assets/image/laurel-left.png"
+            src={asset("assets/image/laurel-left.png")}
             alt=""
             style={{ height: '110px', width: 'auto', display: 'block' }}
             onError={(e) => { e.currentTarget.style.display = 'none'; }}
           />
           <div style={{ fontSize: '100px', fontWeight: 500, letterSpacing: '-.03em' }}>4.95</div>
           <img
-            src="/assets/image/laurel-right.png"
+            src={asset("assets/image/laurel-right.png")}
             alt=""
             style={{ height: '110px', width: 'auto', display: 'block' }}
             onError={(e) => { e.currentTarget.style.display = 'none'; }}

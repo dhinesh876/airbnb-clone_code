@@ -1,4 +1,5 @@
 import React, { useState, useRef } from 'react';
+import { asset } from '../utils/asset';
 
 const MicroStar = () => (
   <span style={{ display: 'inline-block', width: '10px', height: '10px', verticalAlign: '-1px' }}>
@@ -13,14 +14,14 @@ export default function NearbyStays() {
   const trackRef = useRef(null);
 
   const stays = [
-    { title: "Beautiful Studio with a view to die for", price: "₹23,600", rating: "4.91", img: "/assets/images/similar/s1.jpeg", fb: "https://images.unsplash.com/photo-1502672260266-1c1ef2d93688?w=500&auto=format&fit=crop&q=80" },
-    { title: "NAQAB - 1bhk with private pool", price: "₹42,218", rating: "4.95", img: "/assets/images/similar/s2.jpeg", fb: "https://images.unsplash.com/photo-1522708323590-d24dbb6b0267?w=500&auto=format&fit=crop&q=80" },
-    { title: "Greentique Luxury Flat with plunge pool, Calangute", price: "₹44,506", rating: "4.94", img: "/assets/images/similar/s3.jpeg", fb: "https://images.unsplash.com/photo-1560448204-e02f11c3d0e2?w=500&auto=format&fit=crop&q=80" },
-    { title: "The Tropical Studio | 5 mins to Beach", price: "₹22,824", rating: "4.96", img: "/assets/images/similar/s4.jpeg", fb: "https://images.unsplash.com/photo-1493809842364-78817add7ffb?w=500&auto=format&fit=crop&q=80" },
-    { title: "Luxury Casa Bella 1BHK with plunge pool, Calangute", price: "₹39,942", rating: "4.95", img: "/assets/images/similar/s5.jpeg", fb: "https://images.unsplash.com/photo-1600585154340-be6161a56a0c?w=500&auto=format&fit=crop&q=80" },
-    { title: "Kanso by Earthen Window | Jacuzzi | Terrace | Pool", price: "₹45,648", rating: "5.0", img: "/assets/images/similar/s6.jpeg", fb: "https://images.unsplash.com/photo-1616594039964-ae9021a400a0?w=500&auto=format&fit=crop&q=80" },
-    { title: "Luxury Apt | Private Pool | 6 Mins from Beach", price: "₹48,786", rating: "4.93", img: "/assets/images/similar/s2.jpeg", fb: "https://images.unsplash.com/photo-1512917774080-9991f1c4c750?w=500&auto=format&fit=crop&q=80" },
-    { title: "Serendipity Cottage - Calm Stay in Calangute-Baga.", price: "₹22,824", rating: "4.92", img: "/assets/images/similar/s4.jpeg", fb: "https://images.unsplash.com/photo-1583847268964-b28dc8f51f92?w=500&auto=format&fit=crop&q=80" }
+    { title: "Beautiful Studio with a view to die for", price: "₹23,600", rating: "4.91", img: asset("assets/images/similar/s1.jpeg"), fb: "https://images.unsplash.com/photo-1502672260266-1c1ef2d93688?w=500&auto=format&fit=crop&q=80" },
+    { title: "NAQAB - 1bhk with private pool", price: "₹42,218", rating: "4.95", img: asset("assets/images/similar/s2.jpeg"), fb: "https://images.unsplash.com/photo-1522708323590-d24dbb6b0267?w=500&auto=format&fit=crop&q=80" },
+    { title: "Greentique Luxury Flat with plunge pool, Calangute", price: "₹44,506", rating: "4.94", img: asset("assets/images/similar/s3.jpeg"), fb: "https://images.unsplash.com/photo-1560448204-e02f11c3d0e2?w=500&auto=format&fit=crop&q=80" },
+    { title: "The Tropical Studio | 5 mins to Beach", price: "₹22,824", rating: "4.96", img: asset("assets/images/similar/s4.jpeg"), fb: "https://images.unsplash.com/photo-1493809842364-78817add7ffb?w=500&auto=format&fit=crop&q=80" },
+    { title: "Luxury Casa Bella 1BHK with plunge pool, Calangute", price: "₹39,942", rating: "4.95", img: asset("assets/images/similar/s5.jpeg"), fb: "https://images.unsplash.com/photo-1600585154340-be6161a56a0c?w=500&auto=format&fit=crop&q=80" },
+    { title: "Kanso by Earthen Window | Jacuzzi | Terrace | Pool", price: "₹45,648", rating: "5.0", img: asset("assets/images/similar/s6.jpeg"), fb: "https://images.unsplash.com/photo-1616594039964-ae9021a400a0?w=500&auto=format&fit=crop&q=80" },
+    { title: "Luxury Apt | Private Pool | 6 Mins from Beach", price: "₹48,786", rating: "4.93", img: asset("assets/images/similar/s2.jpeg"), fb: "https://images.unsplash.com/photo-1512917774080-9991f1c4c750?w=500&auto=format&fit=crop&q=80" },
+    { title: "Serendipity Cottage - Calm Stay in Calangute-Baga.", price: "₹22,824", rating: "4.92", img: asset("assets/images/similar/s4.jpeg"), fb: "https://images.unsplash.com/photo-1583847268964-b28dc8f51f92?w=500&auto=format&fit=crop&q=80" }
   ];
 
   const handleNext = () => {
