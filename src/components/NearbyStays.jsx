@@ -1,4 +1,5 @@
-import React, { useState, useRef } from 'react';
+import { ChevronLeft, ChevronRight } from 'lucide-react';
+import { useCallback, useEffect, useRef, useState } from 'react';
 import { asset } from '../utils/asset';
 
 const MicroStar = () => (
@@ -9,76 +10,92 @@ const MicroStar = () => (
   </span>
 );
 
+const stays = [
+  { title: "Beautiful Studio with a view to die for", price: "₹23,600", rating: "4.91", img: asset("assets/images/similar/s1.jpeg"), fb: "https://images.unsplash.com/photo-1502672260266-1c1ef2d93688?w=500&auto=format&fit=crop&q=80" },
+  { title: "NAQAB - 1bhk with private pool", price: "₹42,218", rating: "4.95", img: asset("assets/images/similar/s2.jpeg"), fb: "https://images.unsplash.com/photo-1522708323590-d24dbb6b0267?w=500&auto=format&fit=crop&q=80" },
+  { title: "Greentique Luxury Flat with plunge pool, Calangute", price: "₹44,506", rating: "4.94", img: asset("assets/images/similar/s3.jpeg"), fb: "https://images.unsplash.com/photo-1560448204-e02f11c3d0e2?w=500&auto=format&fit=crop&q=80" },
+  { title: "The Tropical Studio | 5 mins to Beach", price: "₹22,824", rating: "4.96", img: asset("assets/images/similar/s4.jpeg"), fb: "https://images.unsplash.com/photo-1493809842364-78817add7ffb?w=500&auto=format&fit=crop&q=80" },
+  { title: "Luxury Casa Bella 1BHK with plunge pool, Calangute", price: "₹39,942", rating: "4.95", img: asset("assets/images/similar/s5.jpeg"), fb: "https://images.unsplash.com/photo-1600585154340-be6161a56a0c?w=500&auto=format&fit=crop&q=80" },
+  { title: "Kanso by Earthen Window | Jacuzzi | Terrace | Pool", price: "₹45,648", rating: "5.0", img: asset("assets/images/similar/s6.jpeg"), fb: "https://images.unsplash.com/photo-1616594039964-ae9021a400a0?w=500&auto=format&fit=crop&q=80" },
+  { title: "Luxury Apt | Private Pool | 6 Mins from Beach", price: "₹48,786", rating: "4.93", img: asset("assets/images/similar/s2.jpeg"), fb: "https://images.unsplash.com/photo-1512917774080-9991f1c4c750?w=500&auto=format&fit=crop&q=80" },
+  { title: "Serendipity Cottage - Calm Stay in Calangute-Baga.", price: "₹22,824", rating: "4.92", img: asset("assets/images/similar/s4.jpeg"), fb: "https://images.unsplash.com/photo-1583847268964-b28dc8f51f92?w=500&auto=format&fit=crop&q=80" }
+];
+
+const PER_VIEW = 5;
+const TOTAL_PAGES = Math.ceil(stays.length / PER_VIEW);
+
 export default function NearbyStays() {
   const [page, setPage] = useState(1);
   const trackRef = useRef(null);
 
-  const stays = [
-    { title: "Beautiful Studio with a view to die for", price: "₹23,600", rating: "4.91", img: asset("assets/images/similar/s1.jpeg"), fb: "https://images.unsplash.com/photo-1502672260266-1c1ef2d93688?w=500&auto=format&fit=crop&q=80" },
-    { title: "NAQAB - 1bhk with private pool", price: "₹42,218", rating: "4.95", img: asset("assets/images/similar/s2.jpeg"), fb: "https://images.unsplash.com/photo-1522708323590-d24dbb6b0267?w=500&auto=format&fit=crop&q=80" },
-    { title: "Greentique Luxury Flat with plunge pool, Calangute", price: "₹44,506", rating: "4.94", img: asset("assets/images/similar/s3.jpeg"), fb: "https://images.unsplash.com/photo-1560448204-e02f11c3d0e2?w=500&auto=format&fit=crop&q=80" },
-    { title: "The Tropical Studio | 5 mins to Beach", price: "₹22,824", rating: "4.96", img: asset("assets/images/similar/s4.jpeg"), fb: "https://images.unsplash.com/photo-1493809842364-78817add7ffb?w=500&auto=format&fit=crop&q=80" },
-    { title: "Luxury Casa Bella 1BHK with plunge pool, Calangute", price: "₹39,942", rating: "4.95", img: asset("assets/images/similar/s5.jpeg"), fb: "https://images.unsplash.com/photo-1600585154340-be6161a56a0c?w=500&auto=format&fit=crop&q=80" },
-    { title: "Kanso by Earthen Window | Jacuzzi | Terrace | Pool", price: "₹45,648", rating: "5.0", img: asset("assets/images/similar/s6.jpeg"), fb: "https://images.unsplash.com/photo-1616594039964-ae9021a400a0?w=500&auto=format&fit=crop&q=80" },
-    { title: "Luxury Apt | Private Pool | 6 Mins from Beach", price: "₹48,786", rating: "4.93", img: asset("assets/images/similar/s2.jpeg"), fb: "https://images.unsplash.com/photo-1512917774080-9991f1c4c750?w=500&auto=format&fit=crop&q=80" },
-    { title: "Serendipity Cottage - Calm Stay in Calangute-Baga.", price: "₹22,824", rating: "4.92", img: asset("assets/images/similar/s4.jpeg"), fb: "https://images.unsplash.com/photo-1583847268964-b28dc8f51f92?w=500&auto=format&fit=crop&q=80" }
-  ];
+  // Work out which "page" is showing from the scroll position
+  const updatePage = useCallback(() => {
+    const el = trackRef.current;
+    if (!el) return;
+    const max = el.scrollWidth - el.clientWidth;
+    if (max <= 0) return setPage(1);
+    const ratio = el.scrollLeft / max;
+    setPage(Math.round(ratio * (TOTAL_PAGES - 1)) + 1);
+  }, []);
 
-  const handleNext = () => {
-    if (trackRef.current) {
-      trackRef.current.scrollBy({ left: trackRef.current.clientWidth, behavior: 'smooth' });
-      setPage(2);
-    }
-  };
+  useEffect(() => {
+    updatePage();
+    window.addEventListener('resize', updatePage);
+    return () => window.removeEventListener('resize', updatePage);
+  }, [updatePage]);
 
-  const handlePrev = () => {
-    if (trackRef.current) {
-      trackRef.current.scrollBy({ left: -trackRef.current.clientWidth, behavior: 'smooth' });
-      setPage(1);
-    }
+  const goToPage = (target) => {
+    const el = trackRef.current;
+    if (!el) return;
+    const max = el.scrollWidth - el.clientWidth;
+    const left = TOTAL_PAGES > 1 ? (max * (target - 1)) / (TOTAL_PAGES - 1) : 0;
+    el.scrollTo({ left, behavior: 'smooth' });
   };
 
   return (
-    <section className="app-divider-wide">
-      <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between', marginBottom: '20px' }}>
-        <h2 style={{ fontSize: '22px', lineHeight: '26px', fontWeight: 500, margin: 0 }}>More stays nearby</h2>
-        <div style={{ display: 'flex', alignItems: 'center', gap: '8px' }}>
-          <span style={{ fontSize: '14px', color: 'var(--muted2)', marginRight: '6px' }}>{page} / 2</span>
+    <section className="app-divider-wide ab-nearby">
+      <div className="ab-nearby__head">
+        <h2 className="ab-nearby__title">More stays nearby</h2>
+        <div className="ab-nearby__controls">
+          <span className="ab-nearby__counter">{page} / {TOTAL_PAGES}</span>
           <button
-            style={{ width: '32px', height: '32px', border: '1px solid #b0b0b0', borderRadius: '50%', background: '#fff', display: 'flex', alignItems: 'center', justifyContent: 'center', opacity: page === 1 ? 0.3 : 1 }}
+            type="button"
+            className="ab-nearby__arrow"
             disabled={page === 1}
-            onClick={handlePrev}
+            onClick={() => goToPage(page - 1)}
             aria-label="Previous stays"
           >
-            ‹
+            <ChevronLeft size={16} strokeWidth={2.5} />
           </button>
           <button
-            style={{ width: '32px', height: '32px', border: '1px solid #b0b0b0', borderRadius: '50%', background: '#fff', display: 'flex', alignItems: 'center', justifyContent: 'center', opacity: page === 2 ? 0.3 : 1 }}
-            disabled={page === 2}
-            onClick={handleNext}
+            type="button"
+            className="ab-nearby__arrow"
+            disabled={page === TOTAL_PAGES}
+            onClick={() => goToPage(page + 1)}
             aria-label="Next stays"
           >
-            ›
+            <ChevronRight size={16} strokeWidth={2.5} />
           </button>
         </div>
       </div>
 
-      <div style={{ display: 'flex', gap: '20px', overflowX: 'auto', scrollBehavior: 'smooth', scrollbarWidth: 'none', paddingBottom: '4px' }} ref={trackRef}>
+      <div className="ab-nearby__track" ref={trackRef} onScroll={updatePage}>
         {stays.map((stay, idx) => (
-          <div key={idx} style={{ flex: '0 0 calc((100% - 80px)/5)', minWidth: 0 }}>
+          <div key={idx} className="ab-nearby__card">
             <img
+              className="ab-nearby__img"
               src={stay.img}
               alt={stay.title}
               loading="lazy"
-              style={{ width: '100%', aspectRatio: '1/1', objectFit: 'cover', borderRadius: '12px', display: 'block' }}
               onError={(e) => {
                 e.currentTarget.onerror = null;
                 e.currentTarget.src = stay.fb;
               }}
             />
-            <div style={{ fontSize: '14px', fontWeight: 500, marginTop: '8px', overflow: 'hidden', textOverflow: 'ellipsis', whiteSpace: 'nowrap' }}>{stay.title}</div>
-            <div style={{ fontSize: '13px', marginTop: '4px' }}>
-              {stay.price} &nbsp; <MicroStar /> {stay.rating}
+            <div className="ab-nearby__name">{stay.title}</div>
+            <div className="ab-nearby__meta">
+              {stay.price}
+              <span className="ab-nearby__rating"><MicroStar /> {stay.rating}</span>
             </div>
           </div>
         ))}

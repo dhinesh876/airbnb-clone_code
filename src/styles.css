@@ -2777,3 +2777,199 @@ body.kbd button:focus-visible {
   font-size: 22px !important;
   font-weight: 500 !important;
 }
+
+/* ===== Round 2: thinner share/save icons, sticky bar + reserve buttons (match reference) ===== */
+
+/* Share / Save icons: normal (thin) stroke */
+.ab-title-bar__btn svg {
+  width: 16px;
+  height: 16px;
+  stroke-width: 1.5px;
+}
+
+/* Sticky bars */
+.ab-sticky-nav,
+.ab-subnav-bar,
+.ab-sticky-subnav,
+.ab-sticky-nav__container,
+.ab-subnav-bar__container,
+.ab-sticky-subnav__container {
+  height: 66px;
+}
+
+.ab-sticky-nav__links a {
+  font-size: 14px;
+  padding: 23px 10px;
+}
+
+.ab-sticky-nav__links a.is-active:after {
+  bottom: 13px;
+  height: 2px;
+}
+
+.ab-subnav-bar__tab {
+  font-size: 14px;
+  padding: 0 14px;
+}
+
+.ab-sticky-nav__action-cluster,
+.ab-subnav-bar__action-group {
+  gap: 20px;
+}
+
+.ab-sticky-nav__price-block,
+.ab-subnav-bar__price-summary {
+  font-size: 14px;
+  line-height: 19px;
+  text-align: right;
+}
+
+.ab-sticky-nav__price-val,
+.ab-subnav-bar__price-bold {
+  font-size: 16px;
+  font-weight: 600;
+}
+
+.ab-subnav-bar__nights-text {
+  font-size: 14px;
+}
+
+.ab-sticky-nav__rating-text,
+.ab-subnav-bar__rating-badge {
+  font-size: 14px;
+  margin-top: 0;
+}
+
+/* Sticky-bar Reserve: 40px pill, ~93px wide */
+.ab-sticky-nav__reserve-btn,
+.ab-subnav-bar__reserve-btn {
+  border: none;
+  color: #fff;
+  background: var(--reserve);
+  font-size: 14px;
+  font-weight: 500;
+  line-height: 20px;
+  height: 40px;
+  padding: 0 20px;
+  border-radius: 999px;
+  cursor: pointer;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.ab-sticky-nav__reserve-btn:hover,
+.ab-subnav-bar__reserve-btn:hover {
+  background: var(--reserve-hover);
+}
+
+/* Sidebar Reserve: 48px full-width pill */
+.ab-reservation-card__submit-btn {
+  height: 48px;
+  font-size: 16px;
+  font-weight: 500;
+  border-radius: 999px;
+}
+
+/* ===== More stays nearby ===== */
+.ab-nearby__head {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 24px;
+}
+
+.ab-nearby__title {
+  font-size: 22px;
+  line-height: 26px;
+  font-weight: 500;
+  margin: 0;
+}
+
+.ab-nearby__controls {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.ab-nearby__counter {
+  font-size: 14px;
+  color: var(--muted2);
+  margin-right: 8px;
+  letter-spacing: 0.02em;
+  font-variant-numeric: tabular-nums;
+}
+
+.ab-nearby__arrow {
+  width: 32px;
+  height: 32px;
+  border: 1px solid #b0b0b0;
+  border-radius: 50%;
+  background: #fff;
+  color: var(--ink);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0;
+  cursor: pointer;
+  transition: transform 0.1s ease, box-shadow 0.15s ease;
+}
+
+.ab-nearby__arrow:hover:not(:disabled) {
+  transform: scale(1.04);
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.18);
+}
+
+.ab-nearby__arrow:disabled {
+  border-color: var(--line);
+  color: #b0b0b0;
+  cursor: default;
+}
+
+.ab-nearby__track {
+  display: flex;
+  gap: 20px;
+  overflow-x: auto;
+  scroll-behavior: smooth;
+  scrollbar-width: none;
+}
+
+.ab-nearby__track::-webkit-scrollbar {
+  display: none;
+}
+
+.ab-nearby__card {
+  flex: 0 0 calc((100% - 80px) / 5);
+  min-width: 0;
+}
+
+.ab-nearby__img {
+  width: 100%;
+  aspect-ratio: 1 / 1;
+  object-fit: cover;
+  border-radius: 12px;
+  display: block;
+}
+
+.ab-nearby__name {
+  margin-top: 8px;
+  font-size: 14px;
+  line-height: 20px;
+  font-weight: 500;
+  display: -webkit-box;
+  -webkit-line-clamp: 2;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+  min-height: 40px;
+}
+
+.ab-nearby__meta {
+  margin-top: 2px;
+  font-size: 14px;
+  line-height: 20px;
+  color: var(--ink);
+}
+
+.ab-nearby__rating {
+  margin-left: 8px;
+}

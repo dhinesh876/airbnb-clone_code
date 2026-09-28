@@ -11,7 +11,8 @@ export default function ThingsToKnow() {
             </svg>
           </div>
           <div style={{ fontSize: '16px', fontWeight: 500, marginBottom: '14px' }}>Cancellation policy</div>
-          <p style={{ fontSize: '14px', lineHeight: 1.5, marginBottom: '8px', color: 'var(--muted2)' }}>Free cancellation before 17 October. Cancel before check-in on 18 October for a partial refund.</p>
+          <p style={{ fontSize: '14px', lineHeight: 1.5, marginBottom: '8px', color: 'black' }}>Free cancellation before 17 October. Cancel before check-in on 18 October for a partial refund.</p>
+          <p style={{ fontSize: '14px', lineHeight: 1.5, marginBottom: '8px', color: 'black' }}>Review this host’s full policy for details.</p>
           <a href="#" style={{ fontSize: '14px', fontWeight: 500, textDecoration: 'underline' }}>Learn more</a>
         </div>
         <div>
@@ -21,7 +22,7 @@ export default function ThingsToKnow() {
             </svg>
           </div>
           <div style={{ fontSize: '16px', fontWeight: 500, marginBottom: '14px' }}>House rules</div>
-          <p style={{ fontSize: '14px', lineHeight: 1.5, marginBottom: '8px', color: 'var(--muted2)' }}>Check-in after 2:00 pm<br />Checkout before 11:00 am<br />3 guests maximum</p>
+          <p style={{ fontSize: '14px', lineHeight: 1.5, marginBottom: '8px', color: 'black' }}>Check-in after 2:00 pm<br />Checkout before 11:00 am<br />3 guests maximum</p>
           <a href="#" style={{ fontSize: '14px', fontWeight: 500, textDecoration: 'underline' }}>Learn more</a>
         </div>
         <div>
@@ -31,7 +32,7 @@ export default function ThingsToKnow() {
             </svg>
           </div>
           <div style={{ fontSize: '16px', fontWeight: 500, marginBottom: '14px' }}>Safety & property</div>
-          <p style={{ fontSize: '14px', lineHeight: 1.5, marginBottom: '8px', color: 'var(--muted2)' }}>Carbon monoxide alarm not reported<br />Smoke alarm not reported<br />Exterior security cameras on property</p>
+          <p style={{ fontSize: '14px', lineHeight: 1.5, marginBottom: '8px', color: 'black' }}>Carbon monoxide alarm not reported<br />Smoke alarm not reported<br />Exterior security cameras on property</p>
           <a href="#" style={{ fontSize: '14px', fontWeight: 500, textDecoration: 'underline' }}>Learn more</a>
         </div>
       </div>
